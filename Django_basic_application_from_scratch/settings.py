@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Django_basic_application_from_scratch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],                   #assigned path to Templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,4 +117,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
+
+#To infomrming django where static files stores js, css
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
+
+#Copy all folder and create dir by Django # Django create   python3 manage.py collectstatic
+
+STATIC_ROOT = os.path.join(BASE_DIR,'assets')
